@@ -1,0 +1,17 @@
+<ng-container *ngIf="category; else #display">
+    <div class="category">
+        <h2>{{category.id}} {{category.category}}</h2>
+    </div>
+    <div class="lists">
+        <section>
+            <h4>Categories</h4>
+            <ul *ngFor="let category of category.category">
+                <li>{{ category.category}} </li>
+            </ul>
+        </section>
+    </div>
+</ng-container>
+
+<ng-template #display>
+    Sorry, no category here.
+</ng-template>
