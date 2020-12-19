@@ -17,6 +17,7 @@ import { SoupmenuComponent } from './soupmenu/soupmenu.component';
 import { SaladmenuComponent } from './saladmenu/saladmenu.component';
 import { SandwichmenuComponent } from './sandwichmenu/sandwichmenu.component';
 import { DishimageComponent } from './dishimage/dishimage.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { DishimageComponent } from './dishimage/dishimage.component';
     SoupmenuComponent,
     SaladmenuComponent,
     SandwichmenuComponent,
-    DishimageComponent
+    DishimageComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
