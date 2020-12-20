@@ -4,7 +4,7 @@ import { User } from "./user";
 
 export class Vote {
     id: number;
-    dish: Dish[];
-    user: User[];
-    category: Category[]
+    dish: Dish;
+    user: User;
+    category: Category
 }
