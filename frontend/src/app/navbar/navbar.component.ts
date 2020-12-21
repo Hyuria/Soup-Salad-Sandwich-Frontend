@@ -1,15 +1,51 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnChanges, OnInit, Output } from '@angular/core';
+import { Router } from '@angular/router';
+import { User } from '../models/user';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css']
 })
-export class NavbarComponent implements OnInit {
+export class NavbarComponent implements OnInit, OnChanges {
 
-  constructor() { }
+  @Output() logInEvent: EventEmitter<any> = new EventEmitter();
+  loggedUser: User;
+  user: string;
+  pass: string;
+
+  constructor(private userService: UserService, private router: Router) { }
 
   ngOnInit(): void {
+    this.user = '';
+    this.pass = '';
+    this.logIn();
   }
+
+  ngOnChanges() {
+    console.log(this.user + ' ' + this.pass);
+  }
+
+  logIn() {
+    console.log(this.user + ' ' + this.pass);
+    this.userService.loginUser(this.user, this.pass).subscribe(
+      resp => {
+        this.loggedUser = resp;
+        this.logInEvent.emit();
+      }
+    );
+  }
+
+  logOut() {
+    this.userService.logoutUser().subscribe(
+      resp => {
+        this.loggedUser = null;
+        this.router.navigate(['home']);
+      }
+    );
+  }
+
+
 
 }

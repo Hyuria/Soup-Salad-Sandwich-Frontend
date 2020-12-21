@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -6,7 +6,6 @@
   <title>Document</title>
 </head>
 <body>
-  <h1>Soup, Salad, and Sandwich App is running!</h1>
   <app-choppingblock></app-choppingblock>
   <app-comment></app-comment>
   <app-dishpage></app-dishpage>
@@ -22,4 +21,10 @@
   <app-sandwichmenu></app-sandwichmenu>
   <app-soupmenu></app-soupmenu>
 </body>
-</html>
+</html> -->
+
+<app-navbar (logInEvent)="setLogin()"></app-navbar>
+<div>
+  <router-outlet></router-outlet>
+</div>
+
