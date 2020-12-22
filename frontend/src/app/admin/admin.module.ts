@@ -1,16 +1,16 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { AdddishComponent } from './adddish/adddish.component';
-import { FormsModule } from '@angular/forms';
 import { AddcommentComponent } from './addcomment/addcomment.component';
+import { FormsModule } from '@angular/forms';
+
 
 
 @NgModule({
-  declarations: [AdddishComponent, AddcommentComponent],
+  declarations: [AddcommentComponent],
   imports: [
     CommonModule,
     FormsModule
   ],
-  bootstrap: [AdddishComponent]
+  bootstrap: [AddcommentComponent]
 })
 export class AdminModule { }
