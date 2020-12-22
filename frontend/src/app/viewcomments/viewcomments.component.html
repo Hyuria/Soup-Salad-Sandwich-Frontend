@@ -1,0 +1,24 @@
+<p>viewcomments works!</p>
+
+<div>
+    <h3>Available Comments</h3>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Dish</th>
+            <th>User</th>
+            <th>Date</th>
+            <th></th>
+        </tr>
+        <tr *ngFor="let comment of availableComments">
+            <td>{{ comment.id }}</td>
+            <td>{{ comment.dish }}</td>
+            <td>{{ comment.user }}</td>
+            <td>{{ comment.date }}</td>
+            <td>
+                <button type="button" (click)="addComment(comment.id)">Adopt</button>
+            </td>
+        </tr>
+    </table>
+</div>
+

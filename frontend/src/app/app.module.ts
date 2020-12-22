@@ -24,6 +24,8 @@ import { AdminModule } from './admin/admin.module';
 import { FormsModule } from '@angular/forms';
 import { UserService } from './services/user.service';
 import { UrlService } from './url.service';
+import { MycommentsComponent } from './mycomments/mycomments.component';
+import { ViewcommentsComponent } from './viewcomments/viewcomments.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +45,9 @@ import { UrlService } from './url.service';
     SandwichmenuComponent,
     DishimageComponent,
     HomeComponent,
-    ManageuserComponent
+    ManageuserComponent,
+    MycommentsComponent,
+    ViewcommentsComponent
   ],
   imports: [
     BrowserModule,
