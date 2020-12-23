@@ -10,5 +10,6 @@ export class UrlService {
   
   getUrl(): string {
     return 'http://localhost:8080/';
+    //return 'http://localhost:8080/Soup_Salad_Sandwich_war_exploded/';
   }
 }
