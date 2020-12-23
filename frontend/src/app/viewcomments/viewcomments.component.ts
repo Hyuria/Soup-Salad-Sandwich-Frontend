@@ -27,5 +27,8 @@ export class ViewcommentsComponent implements OnInit {
       }
     );
   }
+  addComment(comment: Comment) {
+    this.commentService.addComment(comment).subscribe();
+  }
 
 }
