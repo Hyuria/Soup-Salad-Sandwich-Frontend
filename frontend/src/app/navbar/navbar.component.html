@@ -1,7 +1,11 @@
-<div>
+<div class="navbar">
     <a href="home"><strong>Soup, Salad, and Sandwich App</strong></a>
     <a href="viewdishes">View Dishes</a>
     <ng-container *ngIf="!loggedUser; else loggedIn">
+        <!-- user registration -->
+    <a href="register"><strong>Register</strong></a>
+
+        <!-- user login -->
         <form>
             <label for="user">Username: </label>
             <input id="user" name="user" type="text" [(ngModel)]="user" />

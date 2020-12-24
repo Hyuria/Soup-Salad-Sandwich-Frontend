@@ -12,7 +12,7 @@ import { MenuComponent } from './menu/menu.component';
 import { ChoppingblockComponent } from './choppingblock/choppingblock.component';
 import { HottopicsComponent } from './hottopics/hottopics.component';
 import { LoginComponent } from './login/login.component';
-import { RegistrationComponent } from './registration/registration.component';
+import { RegisterComponent } from './register/register.component';
 import { RecentlyaddedrowComponent } from './recentlyaddedrow/recentlyaddedrow.component';
 import { CommentComponent } from './comment/comment.component';
 import { MenuitemComponent } from './menuitem/menuitem.component';
@@ -27,6 +27,7 @@ import { UrlService } from './url.service';
 import { MycommentsComponent } from './mycomments/mycomments.component';
 import { ViewcommentsComponent } from './viewcomments/viewcomments.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,7 +37,7 @@ import { ViewcommentsComponent } from './viewcomments/viewcomments.component';
     ChoppingblockComponent,
     HottopicsComponent,
     LoginComponent,
-    RegistrationComponent,
+    RegisterComponent,
     RecentlyaddedrowComponent,
     CommentComponent,
     MenuitemComponent,
@@ -47,7 +48,8 @@ import { ViewcommentsComponent } from './viewcomments/viewcomments.component';
     HomeComponent,
     ManageuserComponent,
     MycommentsComponent,
-    ViewcommentsComponent
+    ViewcommentsComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,

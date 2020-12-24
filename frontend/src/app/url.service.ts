@@ -9,6 +9,6 @@ export class UrlService {
   }
   
   getUrl(): string {
-    return 'http://localhost:8080/';
+    return 'http://localhost:8080/Soup-Salad-Sandwich/';
   }
 }
