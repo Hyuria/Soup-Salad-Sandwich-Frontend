@@ -26,6 +26,10 @@ import { UserService } from './services/user.service';
 import { UrlService } from './url.service';
 import { MycommentsComponent } from './mycomments/mycomments.component';
 import { ViewcommentsComponent } from './viewcomments/viewcomments.component';
+import { ProfileComponent } from './profile/profile.component';
+import { DishComponent } from './dish/dish.component';
+import { CategoryComponent } from './category/category.component';
+import { UsernameComponent } from './username/username.component';
 
 
 @NgModule({
@@ -49,7 +53,11 @@ import { ViewcommentsComponent } from './viewcomments/viewcomments.component';
     ManageuserComponent,
     MycommentsComponent,
     ViewcommentsComponent,
-    RegisterComponent
+    RegisterComponent,
+    ProfileComponent,
+    DishComponent,
+    CategoryComponent,
+    UsernameComponent
   ],
   imports: [
     BrowserModule,
