@@ -49,4 +49,20 @@ export class UserService {
   getLoggedUser(): User {
     return this.loggedUser;
   }
+
+  registerUser(username: string, password: string): Observable<User> {
+  if (username && password) {
+    const queryParams = `?user=${username}&pass=${password}`;
+    return this.http.post(this.usersUrl + queryParams,
+      {headers: this.formHeaders, withCredentials:true}).pipe(
+        map(resp => resp as User)
+    );
+  } else {
+    return this.http.get(this.usersUrl,
+      {withCredentials:true}).pipe(
+        map(resp => resp as User)
+      );
+  }
+}
+
 }
