@@ -1,0 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Supermercado+One&display=swap');
+
+#logo{
+    font-family: 'Supermercado One';
+    word-spacing: 5px;
+}
+
+a {
+    text-decoration: none;
+    color:#e4e4e4;
+}
+
+a:hover {
+    color:#ffffff;
+}

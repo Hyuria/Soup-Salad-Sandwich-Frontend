@@ -10,11 +10,11 @@ import { RegisterComponent } from './register/register.component';
 const routes: Routes = [
   {
     path:'',
-    component: HomeComponent
+    component: ChoppingblockComponent
   },
   {
     path:'home',
-    component: HomeComponent
+    component: ChoppingblockComponent
   },
   {
     path:'chopping-block',
