@@ -6,6 +6,9 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { CookieService } from 'ngx-cookie-service';
 
+// added this
+import { Router } from '@angular/router';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -17,7 +20,7 @@ export class UserService {
   private regHeaders = new HttpHeaders({'Cookie':this.cookieService.get('JSESSIONID'),
     'Content-Type':'application/json'})
 
-  constructor(private http: HttpClient, private urlService: UrlService, private cookieService: CookieService) {
+  constructor(private http: HttpClient, private urlService: UrlService, private cookieService: CookieService, private router: Router) {
     this.usersUrl = this.urlService.getUrl() + 'users';
   }
 
