@@ -20,7 +20,11 @@ export class NavbarComponent implements OnInit, OnChanges {
   ngOnInit(): void {
     this.user = '';
     this.pass = '';
+    if (this.user === '' && this.pass === '') {
+      localStorage.removeItem('user');
+    }
     this.logIn();
+    console.log(JSON.parse(localStorage.getItem('user')).userName);
   }
 
   ngOnChanges() {
@@ -31,6 +35,12 @@ export class NavbarComponent implements OnInit, OnChanges {
     console.log(this.user + ' ' + this.pass);
     this.userService.loginUser(this.user, this.pass).subscribe(
       resp => {
+        console.log(`${this.user} is successfully registered`);
+        let userObj = {
+          userName: this.user,
+          password: this.pass
+        }
+        localStorage.setItem('user', JSON.stringify(userObj));
         this.loggedUser = resp;
         this.logInEvent.emit();
       }
@@ -45,7 +55,12 @@ export class NavbarComponent implements OnInit, OnChanges {
       }
     );
   }
-
-
-
 }
+
+
+// async function checkLogin() {
+//     let url = baseUrl + '/users';
+//     let response = await fetch(url);
+//     if (response.status === 200) loggedUser = await response.json();
+//     setNav();
+// }
