@@ -35,7 +35,7 @@
         </ng-container>
         <ng-template #loggedIn>
             <div class="d-flex align-items-center">
-                <a href="manage" style="padding-right: 10px">{{ loggedUser.username | titlecase }}&nbsp;</a>
+                <a routerLink="/manage" style="padding-right: 10px">{{ loggedUser.username | titlecase }}&nbsp;</a>
                 <button type="button" class="btn btn-light my-2 my-sm-0" id="loginBtn" (click)="logOut()">Log Out</button>
             </div>
         </ng-template> 

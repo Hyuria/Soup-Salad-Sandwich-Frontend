@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { User } from '../models/user';
 import { UserService } from '../services/user.service';
 
@@ -13,7 +14,7 @@ export class ManageuserComponent implements OnInit {
   newPassword: string;
   newPassword2: string;
 
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService, private router: Router) { }
 
   ngOnInit(): void {
     this.userService.loginUser(null,null).subscribe(

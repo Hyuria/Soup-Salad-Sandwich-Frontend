@@ -40,7 +40,7 @@ export class NavbarComponent implements OnInit, OnChanges {
     console.log(this.user + ' ' + this.pass);
     this.userService.loginUser(this.user, this.pass).subscribe(
       resp => {
-        console.log(`${this.user} is successfully registered`);
+        console.log(`${this.user} is successfully logged in`);
         let userObj = {
           userName: this.user,
           password: this.pass
