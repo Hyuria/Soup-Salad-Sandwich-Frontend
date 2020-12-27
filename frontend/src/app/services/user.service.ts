@@ -9,6 +9,15 @@ import { CookieService } from 'ngx-cookie-service';
 // added this
 import { Router } from '@angular/router';
 
+// export interface AuthResponseData {
+//   idToken: string;
+//   username: string;
+//   refreshToken: string;
+//   expiresIn: string;
+//   localId: string;
+//   registered?: boolean 
+// }
+
 @Injectable({
   providedIn: 'root'
 })
