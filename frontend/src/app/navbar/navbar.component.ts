@@ -62,10 +62,3 @@ export class NavbarComponent implements OnInit, OnChanges {
   }
 }
 
-
-// async function checkLogin() {
-//     let url = baseUrl + '/users';
-//     let response = await fetch(url);
-//     if (response.status === 200) loggedUser = await response.json();
-//     setNav();
-// }

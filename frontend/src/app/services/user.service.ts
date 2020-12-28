@@ -6,7 +6,6 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { CookieService } from 'ngx-cookie-service';
 
-// added this
 import { Router } from '@angular/router';
 
 // export interface AuthResponseData {
@@ -36,6 +35,7 @@ export class UserService {
   loginUser(username: string, password: string): Observable<User> {
     if (username && password) {
       const queryParams = `?user=${username}&pass=${password}`;
+      console.log(this.formHeaders);
       return this.http.put(this.usersUrl + queryParams,
         {headers: this.formHeaders, withCredentials:true}).pipe(
           map(resp => resp as User)
