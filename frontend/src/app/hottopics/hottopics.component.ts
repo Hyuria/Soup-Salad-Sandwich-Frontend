@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Dish } from '../models/dish';
-import { User } from '../models/user';s
+import { User } from '../models/user';
 
 @Component({
   selector: 'app-hottopics',
