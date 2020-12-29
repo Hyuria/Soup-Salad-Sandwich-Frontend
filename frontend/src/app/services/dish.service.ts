@@ -30,19 +30,19 @@ export class DishService {
   }
 
   getSoupDishes(): Observable<Dish[]> {
-    return this.http.get(this.dishUrl + "/soup", {withCredentials:true}).pipe(
+    return this.http.get(this.dishUrl +"/category"+"/soup", {withCredentials:true}).pipe(
       map(resp => resp as Dish[])
     );
   }
 
   getSaladDishes(): Observable<Dish[]> {
-    return this.http.get(this.dishUrl + "/salad", {withCredentials:true}).pipe(
+    return this.http.get(this.dishUrl +"/category"+ "/salad", {withCredentials:true}).pipe(
       map(resp => resp as Dish[])
     );
   }
 
   getSandwichDishes(): Observable<Dish[]> {
-    return this.http.get(this.dishUrl + "/sandwich", {withCredentials:true}).pipe(
+    return this.http.get(this.dishUrl +"/category"+ "/sandwich", {withCredentials:true}).pipe(
       map(resp => resp as Dish[])
     );
   }
