@@ -10,13 +10,16 @@ import { DishService } from '../services/dish.service';
 export class SoupmenuComponent implements OnInit {
 
   soup:Dish[];
+  
 
   constructor(private dishService:DishService) {
     
    }
 
   ngOnInit(): void {
-    this.dishService.getSoupDishes().subscribe(resp=>{this.soup = resp;})
+    this.dishService.getSoupDishes().subscribe(
+      resp=>{
+        this.soup = resp;})
   }
 
 }
