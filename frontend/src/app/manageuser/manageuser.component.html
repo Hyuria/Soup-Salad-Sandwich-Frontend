@@ -2,14 +2,19 @@
 <div>
     <ng-container *ngIf="loggedUser; else noUser">
         <h3>{{ loggedUser.username }}</h3>
-        <label for="username">New Username: </label><br>
-        <input name="username" type="text" [(ngModel)]="newUsername"><br>
-        <button type="button" (click)="updateUsername()">Update Username</button>
-        <br>
-        <label for="password">New Password: </label><br>
-        <input name="password" type="password" [(ngModel)]="newPassword"><br>
-        <input type="password" [(ngModel)]="newPassword2"><br>
-        <button type="button" (click)="updatePassword()">Update Password</button>
+        <form class="manageuser-form">
+            <div class="form-group">
+                <label for="username">New Username: </label><br>
+                <input class="form-control" name="username" type="text" [(ngModel)]="newUsername"><br>
+                <button class="btn btn-primary" type="button" (click)="updateUsername()">Update Username</button>
+            </div>
+            <div class="form-group">
+                <label for="password">New Password: </label><br>
+                <input class="form-control" name="password" type="password" [(ngModel)]="newPassword"><br>
+                <input class="form-control" type="password" [(ngModel)]="newPassword2"><br>
+                <button class="btn btn-primary" type="button" (click)="updatePassword()">Update Password</button>
+            </div>
+        </form>
     </ng-container>
     <ng-template #noUser>
         {{ loggedUser }}
