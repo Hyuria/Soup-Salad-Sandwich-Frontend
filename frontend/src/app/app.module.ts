@@ -31,6 +31,7 @@ import { DishComponent } from './dish/dish.component';
 import { CategoryComponent } from './category/category.component';
 import { UsernameComponent } from './username/username.component';
 import { DishService } from './services/dish.service';
+import { CookieService } from 'ngx-cookie-service';
 
 
 @NgModule({
@@ -70,7 +71,8 @@ import { DishService } from './services/dish.service';
   providers: [
     UserService,
     DishService,
-    UrlService
+    UrlService,
+    CookieService
   ],
   bootstrap: [AppComponent]
 })
