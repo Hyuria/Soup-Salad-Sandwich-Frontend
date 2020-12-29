@@ -1,4 +1,6 @@
+import { DishService } from './../services/dish.service';
 import { Component, OnInit } from '@angular/core';
+import { Dish } from '../models/dish';
 
 @Component({
   selector: 'app-recentlyaddedrow',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RecentlyaddedrowComponent implements OnInit {
 
-  constructor() { }
+  recentDishes: Dish[];
+
+  constructor(private dishService: DishService) { }
 
   ngOnInit(): void {
+    this.dishService.getRecentlyAddedDishes().subscribe(
+      resp => {
+        this.recentDishes = resp;
+      }
+    );
   }
 
+  
 }

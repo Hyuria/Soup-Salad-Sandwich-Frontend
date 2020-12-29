@@ -30,6 +30,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { DishComponent } from './dish/dish.component';
 import { CategoryComponent } from './category/category.component';
 import { UsernameComponent } from './username/username.component';
+import { DishService } from './services/dish.service';
 
 
 @NgModule({
@@ -68,6 +69,7 @@ import { UsernameComponent } from './username/username.component';
   ],
   providers: [
     UserService,
+    DishService,
     UrlService
   ],
   bootstrap: [AppComponent]
