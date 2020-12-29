@@ -18,20 +18,15 @@ export class NavbarComponent implements OnInit, OnChanges {
   constructor(private userService: UserService, private router: Router) { }
 
   ngOnInit(): void {
-    this.user = '';
-    this.pass = '';
-    if (this.user === '' && this.pass === '') {
-      localStorage.removeItem('user');
-    }
-    this.logIn();
-    console.log(JSON.parse(localStorage.getItem('user')).userName);
+    this.loggedUser = JSON.parse(localStorage.getItem('user')).userName;
+    console.log("loggedUser:",JSON.parse(localStorage.getItem('user')).userName);
   }
 
   ngOnChanges() {
     console.log(this.user + ' ' + this.pass);
   }
 
-  getLoggedInUser() {
+  getLoggedInUser() { 
     console.log('Get logged in user');
     this.loggedUser = this.userService.getLoggedUser();
   }
@@ -46,7 +41,8 @@ export class NavbarComponent implements OnInit, OnChanges {
           password: this.pass
         }
         localStorage.setItem('user', JSON.stringify(userObj));
-        this.loggedUser = resp;
+        this.loggedUser = JSON.parse(localStorage.getItem('user')).userName;
+        console.log("this user is ", this.loggedUser)
         this.logInEvent.emit();
       }
     );
@@ -56,6 +52,7 @@ export class NavbarComponent implements OnInit, OnChanges {
     this.userService.logoutUser().subscribe(
       resp => {
         this.loggedUser = null;
+        localStorage.removeItem('user');
         this.router.navigate(['home']);
       }
     );

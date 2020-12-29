@@ -20,9 +20,6 @@ export class RegisterComponent implements OnInit {
   ngOnInit(): void {
     this.user = '';
     this.pass = '';
-    if (this.user === '' && this.pass === '') {
-      localStorage.removeItem('user');
-    }
     this.registerUser();
     console.log(JSON.parse(localStorage.getItem('user')).userName);
     // console.log(JSON.parse(sessionStorage.getItem('user')).userName);
