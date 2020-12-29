@@ -1,18 +1,14 @@
-<div class="row">
-    <div class="col-lg-4 col-md-4 col-xs-4 thumb">
-        <a class="thumbnail" href="#">
-            <img class="img-responsive" src="http://placehold.it/400x300" alt="">
-        </a>
+<div class="container-fluid">
+    <div class="row">
+        <h3> Recently Added </h3>
     </div>
-    <div class="col-lg-4 col-md-4 col-xs-4 thumb">
-        <a class="thumbnail" href="#">
-            <img class="img-responsive" src="http://placehold.it/400x300" alt="">
-        </a>
+    
+    <div class="row">
+        <div *ngFor="let dish of recentDishes" class="col-lg-3 col-md-3 col-xs-3 thumb text-center">
+            <a class="thumbnail" href="#">
+                <img class="img-responsive rounded" src= {{dish.photo_url}} alt="">
+            </a>
+            <h6>{{dish.name | titlecase}}</h6>
+        </div>
     </div>
-    <div class="col-lg-4 col-md-4 col-xs-4 thumb">
-        <a class="thumbnail" href="#">
-            <img class="img-responsive" src="http://placehold.it/400x300" alt="">
-        </a>
-    </div>
-
 </div>
