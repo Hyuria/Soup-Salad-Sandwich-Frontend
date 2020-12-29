@@ -1,14 +1,12 @@
-<did>
+<div>
    <h3>Hot Dishes</h3>
    <table>
       <tr>
-         <th>ID</th>
-         <th>Name</th>
-         <th>Photo</th>
+         <th style="color:white">Name</th>
+         <th style="color:white">Photo</th>
          <th></th>
       </tr>
       <tr *ngFor="let dish of hotDishes">
-         <td>{{ dish.id }}</td>
          <td>{{ dish.name }}</td>
          <td>
             <a class="thumbnail" href="#">
@@ -17,4 +15,4 @@
          </td>
       </tr>
    </table>
-</did>
+</div>
