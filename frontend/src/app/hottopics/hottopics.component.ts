@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Dish } from '../models/dish';
 import { User } from '../models/user';
+import { UserService } from './../services/user.service';
+import { DishService } from './../services/dish.service';
 
 @Component({
   selector: 'app-hottopics',
