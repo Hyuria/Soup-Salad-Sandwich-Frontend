@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Dish } from '../models/dish';
 
 @Component({
   selector: 'app-sandwichmenu',
@@ -7,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SandwichmenuComponent implements OnInit {
 
+  sandwich:Dish;
   constructor() { }
 
   ngOnInit(): void {

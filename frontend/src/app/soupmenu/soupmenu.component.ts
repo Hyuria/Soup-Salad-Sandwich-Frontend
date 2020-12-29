@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Dish } from '../models/dish';
 
 @Component({
   selector: 'app-soupmenu',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./soupmenu.component.css']
 })
 export class SoupmenuComponent implements OnInit {
+
+  soup:Dish;
 
   constructor() { }
 

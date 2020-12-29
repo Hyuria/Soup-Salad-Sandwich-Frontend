@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Dish } from '../models/dish';
 
 @Component({
   selector: 'app-saladmenu',
@@ -7,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SaladmenuComponent implements OnInit {
 
+  salad:Dish;
   constructor() { }
 
   ngOnInit(): void {
