@@ -19,7 +19,6 @@ export class NavbarComponent implements OnInit, OnChanges {
 
   ngOnInit(): void {
     this.loggedUser = JSON.parse(localStorage.getItem('user')).userName;
-    console.log("loggedUser:",JSON.parse(localStorage.getItem('user')).userName);
   }
 
   ngOnChanges() {
