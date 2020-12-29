@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Dish } from '../models/dish';
+import { User } from '../models/user';s
 
 @Component({
   selector: 'app-hottopics',
@@ -6,10 +8,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./hottopics.component.css']
 })
 export class HottopicsComponent implements OnInit {
+   loggedUser: User;
+   hotDishes: Dish[];
 
-  constructor() { }
+   constructor(private userService: UserService, private dishService: DishService) { }
 
-  ngOnInit(): void {
-  }
-
+   ngOnInit(): void {
+      this.userService.loginUser(null,null).subscribe(
+         resp => {
+            this.loggedUser = resp;
+         }
+      );
+      this.dishService.getHotDishes().subscribe(
+         resp => {
+            this.hotDishes = resp;
+         }
+      );
+   }
 }

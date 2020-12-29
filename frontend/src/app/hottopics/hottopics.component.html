@@ -1,1 +1,20 @@
-<p>hottopics works!</p>
+<did>
+   <h3>Hot Dishes</h3>
+   <table>
+      <tr>
+         <th>ID</th>
+         <th>Name</th>
+         <th>Photo</th>
+         <th></th>
+      </tr>
+      <tr *ngFor="let dish of hotDishes">
+         <td>{{ dish.id }}</td>
+         <td>{{ dish.name }}</td>
+         <td>
+            <a class="thumbnail" href="#">
+               <img class="img-responsive rounded" src= {{dish.photo_url}} alt="">
+            </a>
+         </td>
+      </tr>
+   </table>
+</did>

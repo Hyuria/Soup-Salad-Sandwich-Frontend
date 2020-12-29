@@ -29,5 +29,10 @@ export class DishService {
       );
   }
 
+  getHotDishes(): Observable<Dish[]>{
+     return this.http.get(this.dishUrl + "/hot", {withCredentials:true}).pipe(
+        map(resp => resp as Dish[])
+     );
+ }
 
 }
