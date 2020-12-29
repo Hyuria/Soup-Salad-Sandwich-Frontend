@@ -18,7 +18,7 @@
           </li>
         </ul>
 
-        <ng-container *ngIf="!loggedUser; else loggedIn">
+        <ng-container *ngIf="!userService.isLoggedIn; else loggedIn">
             <!-- user registration -->
             <a class="nav-link" routerLink="/register" >Register</a>
             <!-- user login -->
@@ -31,9 +31,10 @@
                 <button type="button" class="btn btn-light my-2 my-sm-0" id="loginBtn" (click)="logIn()">Log In</button>
             </div> -->
         </ng-container>
+        <!-- <ng-container *ngelse > --> 
         <ng-template #loggedIn>
             <div class="d-flex align-items-center">
-                <a routerLink="/manage" style="padding-right: 10px">{{ loggedUser | titlecase }}'s Profile&nbsp;</a>
+                <a routerLink="/manage" style="padding-right: 10px">{{ userService.loggedUser}}'s Profile&nbsp;</a>
                 <button type="button" class="btn btn-light my-2 my-sm-0" id="loginBtn" (click)="logOut()">Log Out</button>
             </div>
         </ng-template> 
