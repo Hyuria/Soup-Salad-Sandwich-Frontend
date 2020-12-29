@@ -17,12 +17,10 @@ export class ManageuserComponent implements OnInit {
   constructor(private userService: UserService, private router: Router) { }
 
   ngOnInit(): void {
-    this.userService.loginUser(null,null).subscribe(
-      resp => {
-        this.loggedUser = resp;
-      }
-    );
+    this.loggedUser = JSON.parse(localStorage.getItem('user')).userName;
+    console.log("loggedUser:",JSON.parse(localStorage.getItem('user')).userName);
   }
+
 
   updateUsername() {
     if (this.newUsername) {
