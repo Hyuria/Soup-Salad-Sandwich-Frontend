@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router'
 import { ChoppingblockComponent } from './choppingblock/choppingblock.component';
 import { HomeComponent } from './home/home.component';
+import { LoginComponent } from './login/login.component';
 import { ManageuserComponent } from './manageuser/manageuser.component';
 import { MenuComponent } from './menu/menu.component';
 import { ProfileComponent } from './profile/profile.component';
@@ -19,6 +20,10 @@ const routes: Routes = [
   {
     path:'chopping-block',
     component: ChoppingblockComponent
+  },
+  {
+    path:'login',
+    component: LoginComponent
   },
   {
     path: 'manage',

@@ -23,15 +23,17 @@
             <a class="nav-link" routerLink="/register" >Register</a>
             <!-- user login -->
 
+            <a class="nav-link" routerLink="/login">Login</a>
+<!-- 
             <div class="form-inline my-2 my-lg-0">
                 <input class="form-control mr-sm-2" placeholder="Username" autocomplete="off" id="user" name="user" type="text" [(ngModel)]="user"/>
                 <input class="form-control mr-sm-2" placeholder="Password" id="pass" name="pass" type="password" [(ngModel)]="pass"/>
                 <button type="button" class="btn btn-light my-2 my-sm-0" id="loginBtn" (click)="logIn()">Log In</button>
-            </div>
+            </div> -->
         </ng-container>
         <ng-template #loggedIn>
             <div class="d-flex align-items-center">
-                <a routerLink="/manage" style="padding-right: 10px">{{ loggedUser | titlecase }}&nbsp;</a>
+                <a routerLink="/manage" style="padding-right: 10px">{{ loggedUser | titlecase }}'s Profile&nbsp;</a>
                 <button type="button" class="btn btn-light my-2 my-sm-0" id="loginBtn" (click)="logOut()">Log Out</button>
             </div>
         </ng-template> 
