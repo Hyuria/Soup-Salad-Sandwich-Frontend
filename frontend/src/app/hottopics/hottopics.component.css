@@ -1,0 +1,21 @@
+h3{
+    color:#ffffff;
+    font-family: 'Supermercado One';
+    word-spacing: 5px;
+    padding-bottom: 45px;
+}
+
+.container-fluid{
+    margin: 1rem;
+}
+
+img {
+    border-radius: 25px !important;
+    height: 300px !important;
+    width: 400px !important;
+}
+
+h6{
+    padding: 20px;
+    color:#ffffff;
+}

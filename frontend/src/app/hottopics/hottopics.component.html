@@ -1,18 +1,14 @@
-<div>
-   <h3>Hot Dishes</h3>
-   <table>
-      <tr>
-         <th style="color:white">Name</th>
-         <th style="color:white">Photo</th>
-         <th></th>
-      </tr>
-      <tr *ngFor="let dish of hotDishes">
-         <td>{{ dish.name }}</td>
-         <td>
-            <a class="thumbnail" href="#">
+<div class="container-fluid">
+   <div class="row">
+       <h3> Hot Dishes </h3>
+   </div>
+   
+   <div class="row">
+       <div *ngFor="let dish of hotDishes" class="col-lg-3 col-md-3 col-xs-3 thumb text-center">
+           <a class="thumbnail" href="#">
                <img class="img-responsive rounded" src= {{dish.photo_url}} alt="">
-            </a>
-         </td>
-      </tr>
-   </table>
+           </a>
+           <h6>{{dish.name | titlecase}}</h6>
+       </div>
+   </div>
 </div>
