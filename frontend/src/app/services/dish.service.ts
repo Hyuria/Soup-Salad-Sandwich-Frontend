@@ -40,9 +40,11 @@ export class DishService {
     );
   }
 
-  addDish(dishObj:Dish): Observable<object>{
+  addDish(dishObj:Dish): Observable<Dish>{
     console.log ("made it to dishservice method");
-    return this.http.post(this.dishUrl, dishObj, {withCredentials:true}).pipe(); 
+    return this.http.post(this.dishUrl, dishObj, {withCredentials:true}).pipe(
+      map(resp => resp as Dish)
+    ); 
   }
 
   // Menu

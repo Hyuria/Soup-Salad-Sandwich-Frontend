@@ -1,5 +1,7 @@
 <div class="form-inline my-2 my-lg-0">
     <input class="form-control mr-sm-2" placeholder="Enter a dish" autocomplete="off" id="dish" name="dish" type="text"
         [(ngModel)]="dishName" />
+    <input class="form-control mr-sm-2" placeholder="Enter a dish pic URL" autocomplete="off" id="dishpic" name="dishpic" type="text"
+        [(ngModel)]="dishpicURL" />
     <button type="button" class="btn btn-light my-2 my-sm-0" id="addDishBtn" (click)="addDish()">Add Dish</button>
 </div>
