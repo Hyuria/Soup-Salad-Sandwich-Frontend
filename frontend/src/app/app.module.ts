@@ -32,6 +32,7 @@ import { CategoryComponent } from './category/category.component';
 import { UsernameComponent } from './username/username.component';
 import { DishService } from './services/dish.service';
 import { CookieService } from 'ngx-cookie-service';
+import { AddDishComponent } from './add-dish/add-dish.component';
 
 
 @NgModule({
@@ -59,7 +60,8 @@ import { CookieService } from 'ngx-cookie-service';
     ProfileComponent,
     DishComponent,
     CategoryComponent,
-    UsernameComponent
+    UsernameComponent,
+    AddDishComponent
   ],
   imports: [
     BrowserModule,

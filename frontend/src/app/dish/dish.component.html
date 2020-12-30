@@ -1,1 +1,48 @@
-<p>dish works!</p>
+<div class="container-fluid">
+    <div class="card">
+      <div class="card-body text-center">
+        <h1 class="card-title">{{dish.name | titlecase}}</h1>
+      </div>
+        <img class="card-img-bottom mx-auto" src={{dish.photo_url}} alt={{dish.name}} style="margin-bottom: 40px">
+        <div class="btn-group btn-group-toggle" data-toggle="buttons" style="margin: 1rem; margin-left: 400px; margin-right: 400px;">
+          <label class="btn btn-secondary">
+            <input type="radio" name="soup" id="soup" autocomplete="off" > Soup ({{soupVoteCount}})
+          </label>
+          <label class="btn btn-secondary">
+            <input type="radio" name="salad" id="salad" autocomplete="off"> Salad ({{saladVoteCount}})
+          </label>
+          <label class="btn btn-secondary">
+              <input type="radio" name="sandwich" id="sandwich" autocomplete="off"> Sandwich ({{sandwichVoteCount}})
+          </label>
+      </div>
+      
+      <!-- Comments -->
+
+      <div *ngFor="let comment of commentArr" class="card mb-2 comment" >
+        <div class="card-body p-2 p-sm-3">
+            <div class="media forum-item">
+                <div class="media-body">
+                    <p class="text-body">
+                        {{comment.message}}
+                    </p>
+                    <p class="text-muted">{{comment.user.username}}</p>
+                    <div class="text-muted small">
+                      Like Count: {{comment.like}}
+                      <span class="d-none d-sm-inline-block">
+                        <button type="button" (click)="likeComment()">
+                          <img src="/assets/hand-thumbs-up.svg" class="thumbs">
+                        </button>
+                      </span>
+                      <button type="button" (click)="dislikeComment()">
+                        <img src="/assets/hand-thumbs-down.svg" class="thumbs">
+                      </button>
+                  </div>
+                </div>
+            </div>
+        </div>
+      </div>
+      
+          
+    </div>
+
+</div>

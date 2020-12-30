@@ -1,6 +1,10 @@
-<div>
+<span>
 <h3 style="color:white">SOUP</h3>
 <ul>
-    <li *ngFor="let s of soup">{{s.name}}</li>
+    <li *ngFor="let s of soup">{{s.name}}
+        <a class="thumbnail" href="#">
+            <img class="img-responsive rounded" src= {{s.photo_url}} alt="">
+        </a>
+    </li>
 </ul>
-</div>
+</span>
