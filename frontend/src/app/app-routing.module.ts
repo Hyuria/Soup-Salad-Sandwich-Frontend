@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router'
+import { AddDishComponent } from './add-dish/add-dish.component';
 import { ChoppingblockComponent } from './choppingblock/choppingblock.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
@@ -7,6 +8,7 @@ import { ManageuserComponent } from './manageuser/manageuser.component';
 import { MenuComponent } from './menu/menu.component';
 import { ProfileComponent } from './profile/profile.component';
 import { RegisterComponent } from './register/register.component';
+
 
 const routes: Routes = [
   {
@@ -44,6 +46,10 @@ const routes: Routes = [
    {
     path: 'viewdishes',
     component: MenuComponent
+  },
+  {
+    path: 'add-dish',
+    component: AddDishComponent
   }
 
 ];

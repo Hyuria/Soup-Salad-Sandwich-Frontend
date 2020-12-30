@@ -52,4 +52,12 @@ export class DishService {
        map(resp => resp as Dish[])
     );
   }
+
+  addDish(dishObj:Dish): Observable<object>{
+    console.log ("made it to dishservice method")
+    return this.http.post(this.dishUrl, dishObj, {withCredentials:true}).pipe(); 
+    ;
+  }
+  
+
 }
