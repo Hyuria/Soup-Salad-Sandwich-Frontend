@@ -19,7 +19,7 @@
           <li class="nav-item">
             <a class="nav-link" routerLink="/add-dish" routerLinkActive="active">Add a Dish</a>
           </li>
-          <li *ngIf="loggedUser.role.id == 2">
+          <li *ngIf="loggedUser != undefined && loggedUser.role.id == 2">
             <a class="nav-link" routerLink="/admin" routerLinkActive="active">Admin</a>
           </li>
         </ul>
