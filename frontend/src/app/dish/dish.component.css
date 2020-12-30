@@ -1,0 +1,9 @@
+.container-fluid{
+    margin-top: 20pt;
+}
+
+img {
+    border-radius: 25px !important;
+    height: 300px !important;
+    width: 400px !important;
+}

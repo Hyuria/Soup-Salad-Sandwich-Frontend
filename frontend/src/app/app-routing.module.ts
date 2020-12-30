@@ -1,3 +1,4 @@
+import { DishComponent } from './dish/dish.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router'
 import { AddDishComponent } from './add-dish/add-dish.component';
@@ -50,6 +51,10 @@ const routes: Routes = [
   {
     path: 'add-dish',
     component: AddDishComponent
+  },
+    {
+    path: 'dish',
+    component: DishComponent
   }
 
 ];
