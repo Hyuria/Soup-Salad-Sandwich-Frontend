@@ -24,26 +24,36 @@ export class PendingdishesComponent implements OnInit {
   	 	 	 this.pendingDishes = resp;
   	 	 }
   	 );
-  	 this.approved = new Status();
-  	 this.rejected = new Status();
-	this.rejected.id = 0;
-	this.approved.id = 2;
   }
 
-  approveDish(dishObj2:Dish){
-  	  console.log("Approving: ");
-  	  this.dishObj = dishObj2;
-  	  this.dishObj.status = this.approved;
-  	  this.dishService.updateDish(this.dishObj);
-      alert("Approved dish");
+  approveDish(id:Number){
+  	  this.dishService.getDishById(String(id)).subscribe(
+		resp => {
+			this.dishObj = resp;
+		  this.dishObj.status.id = 2;
+		  this.dishObj.status.name = "new dish"
+		  console.log("Approving: " + this.dishObj.name);
+		  console.log(this.dishObj);
+	 	  this.dishService.updateDish(this.dishObj).subscribe(
+			resp => {alert("Approved dish");}
+	 	  );
+		}
+  	  );
   }
   
-  rejectDish(dishObj2:Dish){
-  	  console.log("Rejecting: ");
-  	  this.dishObj;
-  	  this.dishObj.status = this.rejected;
-  	  this.dishService.updateDish(this.dishObj);
-		alert("Rejected dish");
+  rejectDish(id:Number){
+  	  this.dishService.getDishById(String(id)).subscribe(
+		resp => {
+			this.dishObj = resp;
+		  this.dishObj.status.id = 0;
+		  this.dishObj.status.name = "rejected"
+		  console.log("Rejecting: " + this.dishObj.name);
+		  console.log(this.dishObj);
+	 	  this.dishService.updateDish(this.dishObj).subscribe(
+			resp => {alert("Rejected dish");}
+	 	  );
+		}
+  	  );
   }
 
 }

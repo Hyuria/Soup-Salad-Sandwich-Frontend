@@ -12,14 +12,35 @@
       
       <!-- Comments -->
 
-      <div *ngFor="let comment of commentArr" class="card mb-2 comment" >
+      <div class="card mb-1 comment">
+        <div class="card-body p-2 p-sm-3">
+          <div class="media forum-item">
+              <div class="media-body">
+                  <p class="text-body ">
+                      <input class="w-100" type="text" #newCommentText>
+                  </p>
+                  <p class="text-muted"> - {{loggedUser.username}}</p>
+                  <div class="text-muted small">
+                    Post Comment 
+                    <span class="d-none d-sm-inline-block">
+                      <button type="button" (click)="postComment(newCommentText.value); newCommentText.value = '' ">
+                        <img src="/assets/box-arrow-in-up.svg" class="thumbs">
+                      </button>
+                    </span>
+                </div>
+              </div>
+          </div>
+      </div>
+      </div>
+
+      <div *ngFor="let comment of commentArr" class="card mb-1 comment" >
         <div class="card-body p-2 p-sm-3">
             <div class="media forum-item">
                 <div class="media-body">
                     <p class="text-body">
                         {{comment.message}}
                     </p>
-                    <p class="text-muted">{{comment.user.username}}</p>
+                    <p class="text-muted">- {{comment.user.username}}</p>
                     <div class="text-muted small">
                       Like Count: {{comment.like}}
                       <span class="d-none d-sm-inline-block">

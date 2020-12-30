@@ -47,11 +47,9 @@ export class DishService {
     ); 
   }
 
-  updateDish(dishObj:Dish): Observable<Dish>{
-  	  console.log("Updating dish");
-  	  return this.http.put(this.dishUrl + "/" + dishObj.id, dishObj, {withCredentials:true}).pipe(
-  	  	  map(resp => resp as Dish)
-	  );
+  updateDish(dishObj:Dish): Observable<Object>{
+  	  console.log(dishObj);
+  	  return this.http.put(this.dishUrl + "/" + dishObj.id, dishObj, {withCredentials:true});
   }
 
   // Menu
@@ -100,6 +98,12 @@ export class DishService {
     return this.http.get(this.dishUrl + "/" + id + "/comment", {withCredentials:true}).pipe(
       map(resp => resp as Comment[])
     );
+  }
+
+  postCommentByDishId(id: String, message: String, userId): Observable<Object>{
+    let url = this.dishUrl + "/" + id + "/comment/" + userId;
+    console.log(url);
+    return this.http.post(url, message, {withCredentials: true});
   }
 
   getLikeByDishId(id: String): Observable<Like[]> {

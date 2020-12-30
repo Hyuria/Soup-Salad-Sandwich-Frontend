@@ -137,4 +137,13 @@ export class DishComponent implements OnInit {
       } 
    } 
   }
+
+  postComment(message:String){
+    console.log("Passed in message: " + message);
+    this.dishService.postCommentByDishId(String(this.dish.id), message, String(this.loggedUser.id)).subscribe(
+      resp=>{
+        this.refreshInformation();
+      }
+    );
+  }
 }
