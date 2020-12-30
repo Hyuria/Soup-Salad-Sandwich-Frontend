@@ -19,9 +19,9 @@ export class DishComponent implements OnInit {
   inputDishID = '';
   dish : Dish;
   voteArr: Vote[];
-  soupVoteCount: Number;
-  saladVoteCount: Number;
-  sandwichVoteCount : Number;
+  soupVoteCount = 0;
+  saladVoteCount = 0;
+  sandwichVoteCount = 0;
 
   commentArr: Comment[];
   likeArr: Like[];
@@ -32,10 +32,7 @@ export class DishComponent implements OnInit {
     //this.loggedUser = this.userService.getLoggedUser();
     this.loggedUser = JSON.parse(localStorage.getItem('user')).userName;
     this.inputDishID = window.history.state.inputDish;
-    this.getAllData();
-  }
-
-  getAllData(){
+    
     this.dishService.getDishById(this.inputDishID).subscribe(
       resp => {
         this.dish = resp;
@@ -46,6 +43,7 @@ export class DishComponent implements OnInit {
       resp => {
         this.voteArr = resp;
         console.log("Loaded Votes: " + this.voteArr);
+        this.getVoteCount();
       }
     );
     this.dishService.getCommentByDishId(this.inputDishID).subscribe(
@@ -59,13 +57,18 @@ export class DishComponent implements OnInit {
         this.likeArr = resp;
         console.log("Loaded Likes: " + this.likeArr);
       }
-    );
+    ); 
   }
 
   getVoteCount(){
     for (let v of this.voteArr){
       if (v.category.id == 1){
-        
+        this.soupVoteCount ++;
+      }else if (v.category.id == 2){
+        this.saladVoteCount ++;
+      }
+      else if(v.category.id == 3){
+        this.sandwichVoteCount ++;
       }
     }
   }
