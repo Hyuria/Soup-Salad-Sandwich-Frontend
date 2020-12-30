@@ -21,7 +21,7 @@ import { Router } from '@angular/router';
   providedIn: 'root'
 })
 export class UserService {
-  private loggedUser: User;
+  public loggedUser: User;
   private usersUrl: string;
   private formHeaders = new HttpHeaders({'Cookie':this.cookieService.get('JSESSIONID'),
     'Content-Type': 'application/x-www-form-urlencoded'});
@@ -30,6 +30,9 @@ export class UserService {
 
   constructor(private http: HttpClient, private urlService: UrlService, private cookieService: CookieService, private router: Router) {
     this.usersUrl = this.urlService.getUrl() + 'users';
+    if (localStorage.getItem('user') != null) {
+      this.loggedUser = JSON.parse(localStorage.getItem('user')).userName;
+    }
   }
 
   loginUser(username: string, password: string): Observable<User> {
@@ -60,6 +63,15 @@ export class UserService {
 
   getLoggedUser(): User {
     return this.loggedUser;
+  }
+
+  get isLoggedIn(): boolean {
+    const user = JSON.parse(localStorage.getItem('user'));
+    if (user == null) {
+      return false;
+    } else {
+      return true;
+    }
   }
 
   registerUser(username: string, password: string): Observable<User> {

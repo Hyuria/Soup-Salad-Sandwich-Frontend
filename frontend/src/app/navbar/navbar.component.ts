@@ -15,10 +15,12 @@ export class NavbarComponent implements OnInit, OnChanges {
   user: string;
   pass: string;
 
-  constructor(private userService: UserService, private router: Router) { }
+  constructor(public userService: UserService, private router: Router) { }
 
   ngOnInit(): void {
-    this.loggedUser = JSON.parse(localStorage.getItem('user')).userName;
+    if (localStorage.getItem('user') != null) {
+      this.loggedUser = JSON.parse(localStorage.getItem('user')).userName;
+    }
   }
 
   ngOnChanges() {

@@ -18,7 +18,10 @@ export class LoginComponent implements OnInit {
   constructor(private userService: UserService, private router: Router) { }
 
   ngOnInit(): void {
-    this.loggedUser = JSON.parse(localStorage.getItem('user')).userName;
+    if (localStorage.getItem('user') != null) {
+      this.loggedUser = JSON.parse(localStorage.getItem('user')).userName;
+    }
+    
   }
 
   ngOnChanges() {
@@ -40,7 +43,7 @@ export class LoginComponent implements OnInit {
           password: this.pass
         }
         localStorage.setItem('user', JSON.stringify(userObj));
-        this.loggedUser = JSON.parse(localStorage.getItem('user')).userName;
+        this.userService.loggedUser = JSON.parse(localStorage.getItem('user')).userName;
         console.log("this user is ", this.loggedUser)
         this.logInEvent.emit();
         this.router.navigate(['/chopping-block']);
@@ -49,3 +52,4 @@ export class LoginComponent implements OnInit {
   }
 
 }
+
