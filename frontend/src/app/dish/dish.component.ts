@@ -79,6 +79,7 @@ export class DishComponent implements OnInit {
   }
 
   likeComment(commentId: Number){
-      this.dishService.addLike(this.dish.id, commentId, this.loggedUser.id)
+      this.dishService.addLike(this.dish.id, commentId, this.loggedUser.id);
+      //this.ngOnInit();
   }
 }

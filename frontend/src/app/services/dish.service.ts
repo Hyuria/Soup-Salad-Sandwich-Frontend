@@ -105,7 +105,7 @@ export class DishService {
     console.log("Adding log to comment");
     let url = this.dishUrl + "/"+ dishId + "/comment/" + commentId + "/like/" + userId;
     console.log(url);
-    //return this.http.post(url, {withCredentials:true}).pipe();
+    return this.http.post(url, {withCredentials:true}).pipe();
   }
 
 }

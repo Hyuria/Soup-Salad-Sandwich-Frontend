@@ -37,9 +37,8 @@ export class NavbarComponent implements OnInit, OnChanges {
     this.userService.loginUser(this.user, this.pass).subscribe(
       resp => {
         this.loggedUser = resp;
-        console.log("Logged User: " + this.loggedUser.id)
         localStorage.setItem('user', JSON.stringify(resp));
-        console.log("this user is ", this.loggedUser)
+        console.log("this user is ", localStorage.getItem('user'));
         this.logInEvent.emit();
       }
     );
