@@ -102,6 +102,12 @@ export class DishService {
     );
   }
 
+  postCommentByDishId(id: String, message: String, userId): Observable<Object>{
+    let url = this.dishUrl + "/" + id + "/comment/" + userId;
+    console.log(url);
+    return this.http.post(url, message, {withCredentials: true});
+  }
+
   getLikeByDishId(id: String): Observable<Like[]> {
     console.log("Getting Like by Dish ID: " + id);
     return this.http.get(this.dishUrl + "/" + id + "/like", {withCredentials:true}).pipe(
