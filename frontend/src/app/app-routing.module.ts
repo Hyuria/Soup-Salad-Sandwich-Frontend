@@ -9,6 +9,7 @@ import { ManageuserComponent } from './manageuser/manageuser.component';
 import { MenuComponent } from './menu/menu.component';
 import { ProfileComponent } from './profile/profile.component';
 import { RegisterComponent } from './register/register.component';
+import {AdminModule} from './admin/admin.module';
 
 
 const routes: Routes = [
@@ -51,6 +52,10 @@ const routes: Routes = [
   {
     path: 'add-dish',
     component: AddDishComponent
+  },
+  {
+    path: 'admin',
+    component: AdminModule
   },
     {
     path: 'dish',
