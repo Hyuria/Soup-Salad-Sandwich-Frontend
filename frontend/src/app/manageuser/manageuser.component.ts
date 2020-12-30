@@ -41,6 +41,7 @@ export class ManageuserComponent implements OnInit {
     this.loggedUser = JSON.parse(localStorage.getItem('user'));
     this.cookieService.set('Cookie', JSON.parse(localStorage.getItem('user')).userName);
     this.cookieService.get('Cookie');
+    console.log(this.loggedUser);
   }
 
 
