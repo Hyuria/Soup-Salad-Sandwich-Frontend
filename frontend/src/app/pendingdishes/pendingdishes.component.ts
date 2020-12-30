@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DishService } from './../services/dish.service';
 import { UserService } from './../services/user.service';
+import { Status } from '../models/status';
 import { Dish } from '../models/dish';
 
 @Component({
@@ -10,7 +11,12 @@ import { Dish } from '../models/dish';
 })
 export class PendingdishesComponent implements OnInit {
 
-  pendingDishes: Dish[];
+  pendingDishes: Dish[]
+	dishObj:Dish
+  //private approved:Status
+  //approved.id = 2;
+  //private rejected:Status
+  //rejected.id = 0;
 
   constructor(private dishService: DishService, private userService: UserService) { }
 
@@ -20,6 +26,16 @@ export class PendingdishesComponent implements OnInit {
   	 	 	 this.pendingDishes = resp;
   	 	 }
   	 );
+  }
+
+  approveDish(){
+  	  console.log("Approving: ");
+  	  this.dishObj;
+  }
+  
+  rejectDish(){
+  	  console.log("Rejecting: ");
+
   }
 
 }
