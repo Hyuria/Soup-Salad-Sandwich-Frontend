@@ -29,6 +29,20 @@ export class DishService {
 
   // Chopping Block
   getRecentlyAddedDishes(): Observable<Dish[]> {
+    return this.http.get(this.dishUrl + "/recent", {withCredentials:true}).pipe(
+      map(resp => resp as Dish[])
+    );
+  }
+
+  getHotDishes(): Observable<Dish[]>{
+    return this.http.get(this.dishUrl + "/hot", {withCredentials:true}).pipe(
+       map(resp => resp as Dish[])
+    );
+  }
+
+  addDish(dishObj:Dish): Observable<object>{
+    console.log ("made it to dishservice method");
+    return this.http.post(this.dishUrl, dishObj, {withCredentials:true}).pipe(); 
   }
 
   // Menu
@@ -50,8 +64,6 @@ export class DishService {
     );
   }
 
-  getHotDishes(): Observable<Dish[]>{
-       map(resp => resp as Dish[])
   // Dish Item
   getDishById(id: String): Observable<Dish> {
     console.log("Getting Dish by ID: " + id);
