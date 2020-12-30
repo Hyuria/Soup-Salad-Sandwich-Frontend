@@ -41,45 +41,100 @@ export class DishComponent implements OnInit {
     this.dishService.getDishById(this.inputDishID).subscribe(
       resp => {
         this.dish = resp;
-        console.log("Loaded Dish: " + this.dish);
+        //console.log("Loaded Dish: " + this.dish);
+        this.refreshInformation();
       }
     );
+  }
+
+  refreshInformation(){
     this.dishService.getVoteByDishId(this.inputDishID).subscribe(
       resp => {
         this.voteArr = resp;
-        console.log("Loaded Votes: " + this.voteArr);
+        //console.log("Loaded Votes: " + this.voteArr);
         this.getVoteCount();
       }
     );
     this.dishService.getCommentByDishId(this.inputDishID).subscribe(
       resp => {
         this.commentArr = resp;
-        console.log("Loaded Comments: " + this.commentArr);
+        //console.log("Loaded Comments: " + this.commentArr);
       }
     );
     this.dishService.getLikeByDishId(this.inputDishID).subscribe(
       resp => {
         this.likeArr = resp;
-        console.log("Loaded Likes: " + this.likeArr);
+        //console.log("Loaded Likes: " + this.likeArr);
       }
-    ); 
+    );
   }
 
   getVoteCount(){
+    this.soupVoteCount = 0;
+    this.saladVoteCount = 0;
+    this.sandwichVoteCount = 0;
     for (let v of this.voteArr){
+      //console.log(v);
       if (v.category.id == 1){
+        //console.log("+1 for Soup");
         this.soupVoteCount ++;
       }else if (v.category.id == 2){
+        //console.log("+1 for Salad");
         this.saladVoteCount ++;
       }
       else if(v.category.id == 3){
+        //console.log("+1 for Sandwich");
         this.sandwichVoteCount ++;
       }
+      //console.log("soup count: " + this.soupVoteCount);
     }
   }
 
   likeComment(commentId: Number){
-      this.dishService.addLike(this.dish.id, commentId, this.loggedUser.id);
-      //this.ngOnInit();
+    this.dishService.addLike(this.dish.id, commentId, this.loggedUser.id).subscribe(
+      resp=>{
+        this.refreshInformation();
+      }
+    );
+  }
+
+  dislikeComment(commentId: Number){
+    this.dishService.addDisLike(this.dish.id, commentId, this.loggedUser.id).subscribe(
+      resp=>{
+        this.refreshInformation();
+      }
+    );
+  }
+
+  vote(category:String){
+    switch(category) { 
+      case "soup": { 
+         this.dishService.addVoteByDishId(String(this.dish.id), "1", String(this.loggedUser.id)).subscribe(
+          resp=>{
+            this.refreshInformation();
+          }
+         );
+         break; 
+      } 
+      case "salad": { 
+        this.dishService.addVoteByDishId(String(this.dish.id), "2", String(this.loggedUser.id)).subscribe(
+          resp=>{
+            this.refreshInformation();
+          }
+         );
+         break; 
+      } 
+      case "sandwich": { 
+        this.dishService.addVoteByDishId(String(this.dish.id), "3", String(this.loggedUser.id)).subscribe(
+          resp=>{
+            this.refreshInformation();
+          }
+         );
+        break; 
+     } 
+      default: { 
+         break; 
+      } 
+   } 
   }
 }

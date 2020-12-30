@@ -3,17 +3,11 @@
       <div class="card-body text-center">
         <h1 class="card-title">{{dish.name | titlecase}}</h1>
       </div>
-        <img class="card-img-bottom mx-auto" src={{dish.photo_url}} alt={{dish.name}} style="margin-bottom: 40px">
-        <div class="btn-group btn-group-toggle" data-toggle="buttons" style="margin: 1rem; margin-left: 400px; margin-right: 400px;">
-          <label class="btn btn-secondary">
-            <input type="radio" name="soup" id="soup" autocomplete="off" > Soup ({{soupVoteCount}})
-          </label>
-          <label class="btn btn-secondary">
-            <input type="radio" name="salad" id="salad" autocomplete="off"> Salad ({{saladVoteCount}})
-          </label>
-          <label class="btn btn-secondary">
-              <input type="radio" name="sandwich" id="sandwich" autocomplete="off"> Sandwich ({{sandwichVoteCount}})
-          </label>
+      <img class="card-img-bottom mx-auto" src={{dish.photo_url}} alt={{dish.name}} style="margin-bottom: 40px">
+      <div class="btn-group" role="group" style="margin: 1rem; margin-left: 400px; margin-right: 400px;">
+        <button type="button" class="btn btn-secondary" (click)="vote('soup')">Soup ({{soupVoteCount}})</button>
+        <button type="button" class="btn btn-success" (click)="vote('salad')">Salad ({{saladVoteCount}})</button>
+        <button type="button" class="btn btn-warning" (click)="vote('sandwich')">Sandwich ({{sandwichVoteCount}})</button>
       </div>
       
       <!-- Comments -->
