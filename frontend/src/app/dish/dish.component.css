@@ -7,3 +7,12 @@ img {
     height: 300px !important;
     width: 400px !important;
 }
+
+.comment{
+    margin: 40px;
+}
+
+.thumbs{
+    width: 15px !important;
+    height: 15px !important;
+}
