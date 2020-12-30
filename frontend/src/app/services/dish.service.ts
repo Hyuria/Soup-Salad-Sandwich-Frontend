@@ -86,6 +86,13 @@ export class DishService {
     );
   }
 
+  addVoteByDishId(id: String, categoryId: String, userId: String): Observable<Object>{
+    console.log("Adding Vote By Dish Id");
+    let url = this.dishUrl + "/" + id + "/vote/" + categoryId + "/user/" + userId;
+    console.log(url);
+    return this.http.post(url, {withCredentials:true});
+  }
+
   getCommentByDishId(id: String): Observable<Comment[]> {
     console.log("Getting Comment by Dish ID: " + id);
     return this.http.get(this.dishUrl + "/" + id + "/comment", {withCredentials:true}).pipe(
@@ -106,11 +113,18 @@ export class DishService {
     );
   }
 
-  addLike(dishId:Number, commentId: Number, userId:Number )/*: Observable<object>*/{
-    console.log("Adding log to comment");
-    let url = this.dishUrl + "/"+ dishId + "/comment/" + commentId + "/like/" + userId;
+  addLike(dishId:Number, commentId: Number, userId:Number ): Observable<Object>{
+    console.log("Adding like to comment");
+    let url = this.dishUrl + "/comment/" + commentId + "/like/" + userId;
     console.log(url);
-    return this.http.post(url, {withCredentials:true}).pipe();
+    return this.http.post(url,{withCredentials:true});
+  }
+
+  addDisLike(dishId:Number, commentId: Number, userId:Number ): Observable<Object>{
+    console.log("Adding dislike to comment");
+    let url = this.dishUrl + "/comment/" + commentId + "/like/" + userId;
+    console.log(url);
+    return this.http.delete(url,{withCredentials:true});
   }
 
 }

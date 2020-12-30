@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
@@ -16,8 +17,25 @@ export class ManageuserComponent implements OnInit {
   newPassword: string;
   newPassword2: string;
 
+  seledtedFile: File = null; 
 
-  constructor(private userService: UserService, private router: Router, private cookieService: CookieService) { }
+  onFileSelected(event) {
+    // console.log(event);
+    this.seledtedFile = <File>event.target.files[0];
+  }
+
+  onUpload() {
+    const fd = new FormData();
+    fd.append('image', this.seledtedFile, this.seledtedFile.name)
+    // need to revise the post url. Can use this.selectedFile.name rather than fd if the back end accepts binary rather than form data
+    this.http.post('http://localhost:8080/Soup-Salad-Sandwich/', fd)
+    .subscribe(res => {
+      console.log(res);
+    })
+  }
+
+
+  constructor(private userService: UserService, private router: Router, private cookieService: CookieService, private http: HttpClient) { }
 
   ngOnInit(): void {
     this.loggedUser = JSON.parse(localStorage.getItem('user'));
