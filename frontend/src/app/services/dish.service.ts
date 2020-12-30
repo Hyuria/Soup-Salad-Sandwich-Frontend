@@ -52,4 +52,10 @@ export class DishService {
        map(resp => resp as Dish[])
     );
   }
+
+  getPendingDishes(): Observable<Dish[]>{
+    return this.http.get(this.dishUrl + "/pending", {withCredentials:true}).pipe(
+       map(resp => resp as Dish[])
+    );
+  }
 }
