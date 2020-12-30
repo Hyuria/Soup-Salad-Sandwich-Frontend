@@ -9,8 +9,8 @@
                 <img class="img-responsive rounded" src= {{dish.photo_url}} alt="">
             </a>
             <h6>{{dish.name | titlecase}}</h6>
-			<button type="button" class="btn btn-success" (click)="approveDish()">Approve</button>
-			<button type="button" class="btn btn-danger" (click)="rejectDish()">Reject</button>
+			<button type="button" class="btn btn-success" (click)="approveDish($event, dish)">Approve</button>
+			<button type="button" class="btn btn-danger" (click)="rejectDish($event, dish)">Reject</button>
         </div>
     </div>
  </div>

@@ -12,11 +12,9 @@ import { Dish } from '../models/dish';
 export class PendingdishesComponent implements OnInit {
 
   pendingDishes: Dish[]
-	dishObj:Dish
-  //private approved:Status
-  //approved.id = 2;
-  //private rejected:Status
-  //rejected.id = 0;
+	public dishObj:Dish
+	private approved:Status
+	private rejected:Status
 
   constructor(private dishService: DishService, private userService: UserService) { }
 
@@ -26,16 +24,26 @@ export class PendingdishesComponent implements OnInit {
   	 	 	 this.pendingDishes = resp;
   	 	 }
   	 );
+  	 this.approved = new Status();
+  	 this.rejected = new Status();
+	this.rejected.id = 0;
+	this.approved.id = 2;
   }
 
-  approveDish(){
+  approveDish(dishObj2:Dish){
   	  console.log("Approving: ");
-  	  this.dishObj;
+  	  this.dishObj = dishObj2;
+  	  this.dishObj.status = this.approved;
+  	  this.dishService.updateDish(this.dishObj);
+      alert("Approved dish");
   }
   
-  rejectDish(){
+  rejectDish(dishObj2:Dish){
   	  console.log("Rejecting: ");
-
+  	  this.dishObj;
+  	  this.dishObj.status = this.rejected;
+  	  this.dishService.updateDish(this.dishObj);
+		alert("Rejected dish");
   }
 
 }

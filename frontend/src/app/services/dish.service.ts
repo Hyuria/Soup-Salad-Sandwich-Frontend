@@ -47,6 +47,13 @@ export class DishService {
     ); 
   }
 
+  updateDish(dishObj:Dish): Observable<Dish>{
+  	  console.log("Updating dish");
+  	  return this.http.put(this.dishUrl + "/" + dishObj.id, dishObj, {withCredentials:true}).pipe(
+  	  	  map(resp => resp as Dish)
+	  );
+  }
+
   // Menu
   getSoupDishes(): Observable<Dish[]> {
     return this.http.get(this.dishUrl +"/category"+"/soup", {withCredentials:true}).pipe(
