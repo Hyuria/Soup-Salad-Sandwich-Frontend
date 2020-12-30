@@ -10,6 +10,7 @@ import { MenuComponent } from './menu/menu.component';
 import { ProfileComponent } from './profile/profile.component';
 import { RegisterComponent } from './register/register.component';
 import {AdminModule} from './admin/admin.module';
+import {PendingdishesComponent} from './pendingdishes/pendingdishes.component';
 
 
 const routes: Routes = [
@@ -55,7 +56,7 @@ const routes: Routes = [
   },
   {
     path: 'admin',
-    component: AdminModule
+    component: PendingdishesComponent
   },
     {
     path: 'dish',

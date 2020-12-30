@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { DishService } from './../../services/dish.service';
-import { UserService } from './../../services/user.service';
-import { Dish } from '../../models/dish';
+import { DishService } from './../services/dish.service';
+import { UserService } from './../services/user.service';
+import { Dish } from '../models/dish';
 
 @Component({
   selector: 'app-pendingdishes',

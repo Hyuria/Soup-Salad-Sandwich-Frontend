@@ -33,6 +33,7 @@ import { UsernameComponent } from './username/username.component';
 import { DishService } from './services/dish.service';
 import { CookieService } from 'ngx-cookie-service';
 import { AddDishComponent } from './add-dish/add-dish.component';
+import {PendingdishesComponent} from './pendingdishes/pendingdishes.component';
 
 
 @NgModule({
@@ -61,6 +62,7 @@ import { AddDishComponent } from './add-dish/add-dish.component';
     DishComponent,
     CategoryComponent,
     UsernameComponent,
+    PendingdishesComponent,
     AddDishComponent
   ],
   imports: [
