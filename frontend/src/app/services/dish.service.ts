@@ -101,4 +101,11 @@ export class DishService {
     );
   }
 
+  addLike(dishId:Number, commentId: Number, userId:Number )/*: Observable<object>*/{
+    console.log("Adding log to comment");
+    let url = this.dishUrl + "/"+ dishId + "/comment/" + commentId + "/like/" + userId;
+    console.log(url);
+    //return this.http.post(url, {withCredentials:true}).pipe();
+  }
+
 }

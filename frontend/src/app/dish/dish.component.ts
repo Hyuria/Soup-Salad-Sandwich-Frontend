@@ -7,6 +7,7 @@ import { Comment } from './../models/comment';
 import { Router } from '@angular/router';
 import { Vote } from './../models/vote';
 import { Component, OnInit } from '@angular/core';
+import { ɵELEMENT_PROBE_PROVIDERS__POST_R3__ } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-dish',
@@ -29,9 +30,13 @@ export class DishComponent implements OnInit {
   constructor(private router: Router, private dishService: DishService, private userService: UserService) { }
 
   ngOnInit(): void {
-    //this.loggedUser = this.userService.getLoggedUser();
-    this.loggedUser = JSON.parse(localStorage.getItem('user')).userName;
+    this.loggedUser = JSON.parse(localStorage.getItem('user'));
     this.inputDishID = window.history.state.inputDish;
+    if (this.inputDishID == undefined){
+      this.inputDishID = localStorage.getItem('dishID');
+    }else{
+      localStorage.setItem('dishID', this.inputDishID);
+    }
     
     this.dishService.getDishById(this.inputDishID).subscribe(
       resp => {
@@ -71,5 +76,9 @@ export class DishComponent implements OnInit {
         this.sandwichVoteCount ++;
       }
     }
+  }
+
+  likeComment(commentId: Number){
+      this.dishService.addLike(this.dish.id, commentId, this.loggedUser.id)
   }
 }

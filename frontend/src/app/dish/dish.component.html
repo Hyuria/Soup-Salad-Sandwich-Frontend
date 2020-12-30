@@ -29,7 +29,7 @@
                     <div class="text-muted small">
                       Like Count: {{comment.like}}
                       <span class="d-none d-sm-inline-block">
-                        <button type="button" (click)="likeComment()">
+                        <button type="button" (click)="likeComment(comment.id)">
                           <img src="/assets/hand-thumbs-up.svg" class="thumbs">
                         </button>
                       </span>
