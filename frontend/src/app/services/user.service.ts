@@ -57,7 +57,8 @@ export class UserService {
 
   updateUser(updatedUser: User): Observable<object> {
     this.loggedUser = updatedUser;
-    return this.http.put(this.usersUrl + this.loggedUser.id, updatedUser, 
+    console.log("this is user.service.ts:", this.loggedUser)
+    return this.http.put(this.usersUrl + "/" + this.loggedUser.id, updatedUser, 
       {headers:this.regHeaders, withCredentials:true}).pipe();
   }
 
