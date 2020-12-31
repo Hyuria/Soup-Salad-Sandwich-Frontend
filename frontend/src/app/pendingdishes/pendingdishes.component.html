@@ -1,16 +1,13 @@
-<div class="container-fluid">
-    <div class="row">
-        <h3> Pending Dishes </h3>
-    </div>
-    
-    <div class="row">
-        <div *ngFor="let dish of pendingDishes" class="col-lg-3 col-md-3 col-xs-3 thumb text-center">
-            <a class="thumbnail" href="#">
-                <img class="img-responsive rounded" src= {{dish.photo_url}} alt="">
-            </a>
-            <h6>{{dish.name | titlecase}}</h6>
-			<button type="button" class="btn btn-success" (click)="approveDish(dish.id)">Approve</button>
-			<button type="button" class="btn btn-danger" (click)="rejectDish(dish.id)">Reject</button>
-        </div>
-    </div>
- </div>
+<span>
+    <h1 class="text-center" style="color:white">PENDING DISHES</h1>
+	<div class="row row-cols-1 row-cols-md-4 text-center">
+		<div *ngFor="let dish of pendingDishes" class="col mb-8">
+			<div class="card text-center bg-dark" style="width: 18rem">
+				<img class="card-img-top img-fluid" src= {{dish.photo_url}} alt="">
+				<h5 class="card-title align-middle" style = "color:white">{{dish.name | titlecase}}</h5>
+				<button type="button" class="btn btn-success" (click)="approveDish(dish.id)">Approve</button>
+				<button type="button" class="btn btn-danger" (click)="rejectDish(dish.id)">Reject</button>
+			</div>
+		</div>
+	</div>
+</span>
