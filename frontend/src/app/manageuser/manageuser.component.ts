@@ -25,32 +25,28 @@ export class ManageuserComponent implements OnInit {
   base64Data: any;
 
   onFileSelected(event) {
-    // console.log(event);
+    console.log(event);
     this.selectedFile = <File>event.target.files[0];
   }
 
   onUpload() {
     const fd = new FormData();
-    fd.append('image', this.selectedFile, this.selectedFile.name)
+    fd.append('image', this.selectedFile)
     // need to revise the post url. Can use this.selectedFile.name rather than fd if the back end accepts binary rather than form data
-    this.http.post('http://localhost:8080/Soup-Salad-Sandwich/users/{id}/image', fd, {observe: 'response'})
-    .subscribe(res => {
-      if (res.status === 200) {
+    this.http.post("http://localhost:8080/Soup-Salad-Sandwich/users/" + this.loggedUser.id + "/image", fd, {withCredentials: true})
+    .subscribe(res => {  
         console.log(res);
-        this.message = 'Image uploaded successfully';
-      } else {
-        this.message = 'Image not uploaded successfully';
-      }
     })
   }
 
    getImage() {
     //Make a call to Spring to get the Image Bytes.
-    this.http.get('http://localhost:8080/Soup-Salad-Sandwich/users/{id}/image' + this.imageName)
+    this.http.get('http://localhost:8080/Soup-Salad-Sandwich/users/download/' + this.loggedUser.id )
       .subscribe(
         res => {
-          this.retrievedImage = res;
-          this.base64Data = this.retrievedImage.picByte;
+          console.log(res)
+          this.retrievedImage = res['image'];
+          this.base64Data = this.retrievedImage;
           this.retrievedImage = 'data:image/jpeg;base64,' + this.base64Data;
         }
       );
@@ -92,7 +88,6 @@ export class ManageuserComponent implements OnInit {
       alert('You didn\'t enter a password.');
     }
   }
-
 
 
 }
