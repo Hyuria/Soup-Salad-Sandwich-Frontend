@@ -30,8 +30,8 @@ export class PendingdishesComponent implements OnInit {
   	  this.dishService.getDishById(String(id)).subscribe(
 		resp => {
 			this.dishObj = resp;
-		  this.dishObj.status.id = 2;
-		  this.dishObj.status.name = "new dish"
+		  this.dishObj.status.id = 4;
+		  this.dishObj.status.name = "classic"
 		  console.log("Approving: " + this.dishObj.name);
 		  console.log(this.dishObj);
 	 	  this.dishService.updateDish(this.dishObj).subscribe(

@@ -1,6 +1,6 @@
 <span>
-    <h3 style="color:white">SOUP</h3>
-	<div class="card-columns">
+    <h1 class="text-center" style="color:white">~SOUP~</h1>
+	<div class="card-columns text-center">
 		<div *ngFor="let s of soup" class="card bg-dark mb-3 text-white text-center" style="width: 18rem;">
            <a class="thumbnail" routerLink="/dish" [state]="{ inputDish: s.id }">
 				<img class="card-img-top img-fluid" src= {{s.photo_url}} alt="">

@@ -1,3 +1,10 @@
+h1{
+    color:#ffffff;
+    font-family: 'Supermercado One';
+    word-spacing: 5px;
+    padding: 45px;
+    text-decoration: underline;
+}
 img {
     border-radius: 25px !important;
     /*height: 300px !important;
