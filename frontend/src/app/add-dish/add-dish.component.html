@@ -13,8 +13,10 @@
             <button type="button" class="btn btn-light my-2 my-sm-0" id="addDishBtn" (click)="addDish()">Add Dish</button>
         </div>
     </div>
-    <div  *ngIf="dishpicURL" class="row mt-6 justify-content-center">
-        <img class="img-responsive rounded" src= {{dishpicURL}} alt="">
+    <div class="row mt-6 justify-content-center">
+        <ng-container *ngIf="dishpicURL">
+            <img class="img-responsive rounded" src= {{dishpicURL}} alt="">
+        </ng-container>
     </div>
 </div>
 
