@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpEventType } from '@angular/common/http';
 import { User } from '../models/user';
 import { UrlService } from '../url.service';
 import { Observable } from 'rxjs';
@@ -34,6 +34,12 @@ export class UserService {
       this.loggedUser = JSON.parse(localStorage.getItem('user')).userName;
     }
   }
+
+  message: string;
+  imageName: any; 
+  retrievedImage: any;
+  base64Data: any;
+
 
   loginUser(username: string, password: string): Observable<User> {
     if (username && password) {
@@ -91,3 +97,4 @@ export class UserService {
 }
 
 }
+
