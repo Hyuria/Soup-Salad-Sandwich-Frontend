@@ -35,7 +35,10 @@ export class PendingdishesComponent implements OnInit {
 		  console.log("Approving: " + this.dishObj.name);
 		  console.log(this.dishObj);
 	 	  this.dishService.updateDish(this.dishObj).subscribe(
-			resp => {alert("Approved dish");}
+			resp => {
+				alert("Approved dish");
+				this.ngOnInit();
+			}
 	 	  );
 		}
   	  );
@@ -50,7 +53,10 @@ export class PendingdishesComponent implements OnInit {
 		  console.log("Rejecting: " + this.dishObj.name);
 		  console.log(this.dishObj);
 	 	  this.dishService.updateDish(this.dishObj).subscribe(
-			resp => {alert("Rejected dish");}
+			resp => {
+				alert("Rejected dish");
+				this.ngOnInit();
+			}
 	 	  );
 		}
   	  );

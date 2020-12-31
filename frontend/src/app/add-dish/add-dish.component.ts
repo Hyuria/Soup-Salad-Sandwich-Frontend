@@ -27,26 +27,33 @@ export class AddDishComponent implements OnInit {
     this.dishObj2 = new Dish();
   }
 
-   
+  // Checks if the image URL is valid
+  // Not implemented yet
+  imageExists(url, callback) {
+    let img = new Image();
+    img.onload = function() { callback(true); };
+    img.onerror = function() { callback(false); };
+    img.src = url;
+  }
 
   addDish(){
     console.log("made it to ts method");
     if(this.dishName!=null||this.dishName==" "){
       if(this.dishpicURL){
-    this.dishObj.photo_url=this.dishpicURL;
-    this.dishObj.name=this.dishName;
-    this.categoryObj.id=4;
-    this.statusObj.id=1;
-    this.dishObj.status=this.statusObj;
-    this.dishObj.category=this.categoryObj;
-    this.dishService.addDish(this.dishObj).subscribe(resp=>{this.dishObj2 = resp;});
-    alert(`${this.dishName} has been successfully added`);
-    if(!this.dishObj2) alert("unable to add try another one");
+        this.dishObj.photo_url=this.dishpicURL;
+        this.dishObj.name=this.dishName;
+        this.categoryObj.id=4;
+        this.statusObj.id=1;
+        this.dishObj.status=this.statusObj;
+        this.dishObj.category=this.categoryObj;
+        this.dishService.addDish(this.dishObj).subscribe(resp=>{this.dishObj2 = resp;});
+        alert(`${this.dishName} has been submitted to admin for approval.`);
+        if(!this.dishObj2) alert("Unable to add dish. Please try again.");
       }else{
-        alert("must have photo");
+        alert("Dish must have a valid photo link.");
       }
     }else{
-      alert("must enter something try again");
+      alert("Cannot have a blank field.");
     }
   }
 
