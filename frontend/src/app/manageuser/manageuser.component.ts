@@ -35,7 +35,10 @@ export class ManageuserComponent implements OnInit {
     // need to revise the post url. Can use this.selectedFile.name rather than fd if the back end accepts binary rather than form data
     this.http.post("http://localhost:8080/Soup-Salad-Sandwich/users/" + this.loggedUser.id + "/image", fd, {withCredentials: true})
     .subscribe(res => {  
-        console.log(res);
+        let success = res['success']
+        if(true == success){
+          this.setImage(res)
+        }
     })
   }
 
@@ -44,15 +47,18 @@ export class ManageuserComponent implements OnInit {
     this.http.get('http://localhost:8080/Soup-Salad-Sandwich/users/download/' + this.loggedUser.id )
       .subscribe(
         res => {
-          console.log(res)
-          this.retrievedImage = res['image'];
-          this.base64Data = this.retrievedImage;
-          this.retrievedImage = 'data:image/jpeg;base64,' + this.base64Data;
+          if(res['image']){
+            this.setImage(res)
+          }
         }
       );
   }
 
-
+  setImage(res: any){
+      this.retrievedImage = res['image'];
+      this.base64Data = this.retrievedImage;
+      this.retrievedImage = 'data:image/jpeg;base64,' + this.base64Data;
+  }
 
   constructor(private userService: UserService, private router: Router, private cookieService: CookieService, private http: HttpClient) { }
 
@@ -60,6 +66,7 @@ export class ManageuserComponent implements OnInit {
     this.loggedUser = JSON.parse(localStorage.getItem('user'));
     this.cookieService.set('Cookie', JSON.parse(localStorage.getItem('user')).userName);
     this.cookieService.get('Cookie');
+    this.getImage()
     console.log(this.loggedUser);
   }
 
