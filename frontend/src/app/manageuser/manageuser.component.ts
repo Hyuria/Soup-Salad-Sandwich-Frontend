@@ -34,6 +34,7 @@ export class ManageuserComponent implements OnInit {
     fd.append('image', this.selectedFile)
     // need to revise the post url. Can use this.selectedFile.name rather than fd if the back end accepts binary rather than form data
     this.http.post("http://localhost:8080/Soup-Salad-Sandwich/users/" + this.loggedUser.id + "/image", fd, {withCredentials: true})
+    // this.http.post("http://localhost:8080/Soup_Salad_Sandwich_war_exploded/users" + this.loggedUser.id + "/image", fd, {withCredentials: true})
     .subscribe(res => {  
         let success = res['success']
         if(true == success){
@@ -45,6 +46,7 @@ export class ManageuserComponent implements OnInit {
    getImage() {
     //Make a call to Spring to get the Image Bytes.
     this.http.get('http://localhost:8080/Soup-Salad-Sandwich/users/download/' + this.loggedUser.id )
+    // this.http.get('http://localhost:8080/Soup_Salad_Sandwich_war_exploded/users/download/' + this.loggedUser.id )
       .subscribe(
         res => {
           if(res['image']){
