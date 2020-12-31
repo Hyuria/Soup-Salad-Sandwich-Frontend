@@ -1,10 +1,11 @@
 <span>
     <h3 style="color:white">SALAD</h3>
-    <ul>
-        <li *ngFor="let s of salad">{{s.name}}
-            <a class="thumbnail" href="#">
-                <img class="img-responsive rounded" src= {{s.photo_url}} alt="">
-            </a>
-        </li>
-    </ul>
+	<div class="card-deck">
+		<div *ngFor="let s of salad" class="card bg-dark mb-3 text-center" style="width: 18rem;">
+			<a class="thumbnail" href="#">
+				<img class="card-img-top img-fluid" src= {{s.photo_url}} alt="">
+				<h5 class="card-title align-middle">{{s.name | titlecase}}</h5>
+			</a>
+		</div>
+	</div>
 </span>
