@@ -1,15 +1,11 @@
-<div class="container-fluid">
-   <div class="row">
-       <h3> Hot Dishes </h3>
-   </div>
-   
-   <div class="row">
-       <div *ngFor="let dish of hotDishes" class="col-lg-3 col-md-3 col-xs-3 thumb text-center">
-           <a class="thumbnail" routerLink="/dish" [state]="{ inputDish: dish.id }">
-               <img class="img-responsive rounded" src= {{dish.photo_url}} alt="">
-           </a>
-           <h6>{{dish.name | titlecase}}</h6>
-       </div>
-   </div>
-
-</div>
+<span>
+    <h3 style="color:white">HOT TOPICS</h3>
+	<div class="card-deck text-center">
+		<div *ngFor="let dish of hotDishes" class="card text-center bg-dark" style="width: 18rem">
+			<a class="thumbnail" routerLink="/dish" [state]="{ inputDish: dish.id }">
+				<img class="card-img-top img-fluid" src= {{dish.photo_url}} alt="">
+				<h5 class="card-title align-middle" style = "color:white">{{dish.name | titlecase}}</h5>
+			</a>
+		</div>
+	</div>
+</span>
