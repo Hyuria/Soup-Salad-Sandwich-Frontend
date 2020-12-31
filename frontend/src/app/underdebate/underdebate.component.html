@@ -2,7 +2,7 @@
     <h1 class="text-center" style="color:white">~UNDECIDED~</h1>
 	<div class="row row-cols-1 row-cols-md-4 text-center">
 		<div *ngFor="let dish of debatedDishes" class="col mb-8">
-			<div class="card text-center bg-dark" style="width: 18rem">
+			<div *ngIf="dish.status.id != 1 && dish.status.id != 0" class="card text-center bg-dark" style="width: 18rem">
 				<a class="thumbnail" routerLink="/dish" [state]="{ inputDish: dish.id }">
 					<img class="card-img-top img-fluid" src= {{dish.photo_url}} alt="">
 					<h5 class="card-title align-middle" style = "color:white">{{dish.name | titlecase}}</h5>
