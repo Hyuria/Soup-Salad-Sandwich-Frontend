@@ -1,8 +1,8 @@
 <span>
     <h3 style="color:white">SANDWICH</h3>
-	<div class="card-deck">
+	<div class="card-columns">
 		<div *ngFor="let s of sandwich" class="card bg-dark mb-3 text-white text-center" style="width: 18rem;">
-			<a class="thumbnail" href="#">
+           <a class="thumbnail" routerLink="/dish" [state]="{ inputDish: s.id }">
 				<img class="card-img-top img-fluid" src= {{s.photo_url}} alt="">
 				<h5 class="card-title align-middle">{{s.name | titlecase}}</h5>
 			</a>
