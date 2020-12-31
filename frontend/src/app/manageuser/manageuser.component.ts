@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpEventType } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
@@ -17,22 +17,45 @@ export class ManageuserComponent implements OnInit {
   newPassword: string;
   newPassword2: string;
 
-  seledtedFile: File = null; 
+  selectedFile: File = null; 
+
+  message: string;
+  imageName: any; 
+  retrievedImage: any;
+  base64Data: any;
 
   onFileSelected(event) {
     // console.log(event);
-    this.seledtedFile = <File>event.target.files[0];
+    this.selectedFile = <File>event.target.files[0];
   }
 
   onUpload() {
     const fd = new FormData();
-    fd.append('image', this.seledtedFile, this.seledtedFile.name)
+    fd.append('image', this.selectedFile, this.selectedFile.name)
     // need to revise the post url. Can use this.selectedFile.name rather than fd if the back end accepts binary rather than form data
-    this.http.post('http://localhost:8080/Soup-Salad-Sandwich/', fd)
+    this.http.post('http://localhost:8080/Soup-Salad-Sandwich/users/{id}/image', fd, {observe: 'response'})
     .subscribe(res => {
-      console.log(res);
+      if (res.status === 200) {
+        console.log(res);
+        this.message = 'Image uploaded successfully';
+      } else {
+        this.message = 'Image not uploaded successfully';
+      }
     })
   }
+
+   getImage() {
+    //Make a call to Spring to get the Image Bytes.
+    this.http.get('http://localhost:8080/Soup-Salad-Sandwich/users/{id}/image' + this.imageName)
+      .subscribe(
+        res => {
+          this.retrievedImage = res;
+          this.base64Data = this.retrievedImage.picByte;
+          this.retrievedImage = 'data:image/jpeg;base64,' + this.base64Data;
+        }
+      );
+  }
+
 
 
   constructor(private userService: UserService, private router: Router, private cookieService: CookieService, private http: HttpClient) { }
