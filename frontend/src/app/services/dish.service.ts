@@ -70,6 +70,12 @@ export class DishService {
       map(resp => resp as Dish[])
     );
   }
+  
+  getUndecidedDishes(): Observable<Dish[]> {
+    return this.http.get(this.dishUrl +"/category"+ "/undecided", {withCredentials:true}).pipe(
+      map(resp => resp as Dish[])
+    );
+  }
 
   // Dish Item
   getDishById(id: String): Observable<Dish> {

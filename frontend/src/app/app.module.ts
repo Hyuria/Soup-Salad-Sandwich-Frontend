@@ -34,6 +34,7 @@ import { DishService } from './services/dish.service';
 import { CookieService } from 'ngx-cookie-service';
 import { AddDishComponent } from './add-dish/add-dish.component';
 import {PendingdishesComponent} from './pendingdishes/pendingdishes.component';
+import { UnderdebateComponent } from './underdebate/underdebate.component';
 
 
 @NgModule({
@@ -63,7 +64,8 @@ import {PendingdishesComponent} from './pendingdishes/pendingdishes.component';
     CategoryComponent,
     UsernameComponent,
     PendingdishesComponent,
-    AddDishComponent
+    AddDishComponent,
+    UnderdebateComponent
   ],
   imports: [
     BrowserModule,
