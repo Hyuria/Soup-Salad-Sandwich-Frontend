@@ -35,3 +35,13 @@ A social app that allows users to debate whether a food item is soup, salad, or 
 - open eclipse IDE to import the project folder
 - run ng serve 
 - setup local database useing Postgres or remote database using AWS RDS
+
+## Usage of the Project
+- Debates on whether a food item is soup, salad, or sandwich
+- Social app
+
+## Contributors
+  Henry Chen, Jakeem Fisher, Brodie Hufnagel, and Ben Hsieh
+
+## License 
+  This project uses the following license: Revature 
