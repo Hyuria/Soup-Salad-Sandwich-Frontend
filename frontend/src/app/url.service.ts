@@ -9,7 +9,7 @@ export class UrlService {
   }
   
   getUrl(): string {
-    //return 'http://localhost:8080/Soup-Salad-Sandwich/';
-    return 'http://localhost:8080/Soup_Salad_Sandwich_war_exploded/';
+    return 'http://localhost:8080/Soup-Salad-Sandwich/';
+    //return 'http://localhost:8080/Soup_Salad_Sandwich_war_exploded/';
   }
 }
