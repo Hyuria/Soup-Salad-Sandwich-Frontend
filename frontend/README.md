@@ -1,27 +1,37 @@
-# Frontend
+# Soup, Salad, Sandwich Frontend
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.1.3.
+## Project Description
+A social app that allows users to debate whether a food item is soup, salad, or sandwich
 
-## Development server
+## Technologies Used
+- Java
+- Spring Framework
+- Angular 
+- PostgreSQL
+- AWD RDS
+- JavaScript
+- TypeScript
+- HTML
+- Bootstrap
+- JUnit 
+- Mockito
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Features
+- User login and registration
+- User can submit a food item for approval
+- Admin can approve or reject a food item
+- Users can vote on the category of food item
+- Users can comment on a food item
+- Users can like/dislike a food item
+- Users can upload profile picture
+- Profile picture is linked to user in the comments forum
 
-## Code scaffolding
+## Future Considerations
+- Implement session tokens
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+## Getting Started
+- mkdir 'name of folder'
+- gitclone git@github.com:Hyuria/Soup-Salad-Sandwich-Frontend.git
+- open eclipse IDE to import the project folder
+- run ng serve 
+- setup local database useing Postgres or remote database using AWS RDS
