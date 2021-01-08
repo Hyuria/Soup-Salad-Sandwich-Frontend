@@ -36,6 +36,15 @@
       <div *ngFor="let comment of commentArr" class="card mb-1 comment" >
         <div class="card-body p-2 p-sm-3">
             <div class="media forum-item">
+              <!-- user profile pictures for each comment -->
+              <div *ngIf="retrievedImage[comment.user.id] ; else elseBlock">
+                <img class="profile-image" [src]="retrievedImage[comment.user.id]" class="mr-3 rounded-circle" width="50" alt="User"/>
+              </div>
+              <ng-template #elseBlock>
+                <img class="profile-image" src="/assets/blank-profile.jpg" class="mr-3 rounded-circle" width="50" alt="User"/>
+              </ng-template>
+
+              <!-- -------------------------------------- -->
                 <div class="media-body">
                     <p class="text-body">
                         {{comment.message}}
