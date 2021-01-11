@@ -17,6 +17,9 @@ A social app that allows users to debate whether a food item is soup, salad, or 
 - Mockito
 
 ## Features
+
+List of features ready and TODOs for future development
+
 - User login and registration
 - User can submit a food item for approval
 - Admin can approve or reject a food item
@@ -26,7 +29,8 @@ A social app that allows users to debate whether a food item is soup, salad, or 
 - Users can upload profile picture
 - Profile picture is linked to user in the comments forum
 
-## Future Considerations
+To-do list:
+
 - Implement session tokens
 
 ## Getting Started
@@ -37,8 +41,12 @@ A social app that allows users to debate whether a food item is soup, salad, or 
 - setup local database useing Postgres or remote database using AWS RDS
 
 ## Usage of the Project
-- Debates on whether a food item is soup, salad, or sandwich
-- Social app
+
+- Create user account
+- login as an user
+- Submit a food item for approval
+- Debate on whether a food item is soup, salad, or sandwich
+- See if a food item makes the hot topics section and / or the menu section and what are the overall responses
 
 ## Contributors
   Henry Chen, Jakeem Fisher, Brodie Hufnagel, and Ben Hsieh
