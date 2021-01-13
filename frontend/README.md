@@ -1,4 +1,5 @@
 # Soup, Salad, Sandwich Frontend
+Revature Project 2
 
 ## Project Description
 A social app that allows users to debate whether a food item is soup, salad, or sandwich
